@@ -5,10 +5,10 @@
 #ifndef COCKTAIL_ROUTING_H
 #define COCKTAIL_ROUTING_H
 
-#include "hashmap.h"
+#include <search.h>
 
-hashmap* init_routing(ctRoute*,int);
+ENTRY* init_routing(ctRoute*,int);
 
-void handle_request(hashmap* routes,char* path, unsigned char* buf, char* responseBody, int readSock, int writeSock);
+void handle_request(ENTRY* routes,char* path, unsigned char* buf, char* responseBody, char* header,char* body, int readSock, int writeSock);
 
 #endif //COCKTAIL_ROUTING_H

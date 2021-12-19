@@ -93,13 +93,6 @@ build CMakeFiles/cocktail.dir/handler.c.o: C_COMPILER__cocktail_Debug /home/hide
   OBJECT_DIR = CMakeFiles/cocktail.dir
   OBJECT_FILE_DIR = CMakeFiles/cocktail.dir
 
-build CMakeFiles/cocktail.dir/hashmap.c.o: C_COMPILER__cocktail_Debug /home/hidetomo8111f/CLionProjects/cocktail/hashmap.c || cmake_object_order_depends_target_cocktail
-  DEFINES = -Dcocktail_EXPORTS
-  DEP_FILE = CMakeFiles/cocktail.dir/hashmap.c.o.d
-  FLAGS = -g -fPIC -std=gnu99
-  OBJECT_DIR = CMakeFiles/cocktail.dir
-  OBJECT_FILE_DIR = CMakeFiles/cocktail.dir
-
 
 # =============================================================================
 # Link build statements for SHARED_LIBRARY target cocktail
@@ -108,7 +101,7 @@ build CMakeFiles/cocktail.dir/hashmap.c.o: C_COMPILER__cocktail_Debug /home/hide
 #############################################
 # Link the shared library libcocktail.so
 
-build libcocktail.so: C_SHARED_LIBRARY_LINKER__cocktail_Debug CMakeFiles/cocktail.dir/server.c.o CMakeFiles/cocktail.dir/routing.c.o CMakeFiles/cocktail.dir/handler.c.o CMakeFiles/cocktail.dir/hashmap.c.o
+build libcocktail.so: C_SHARED_LIBRARY_LINKER__cocktail_Debug CMakeFiles/cocktail.dir/server.c.o CMakeFiles/cocktail.dir/routing.c.o CMakeFiles/cocktail.dir/handler.c.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/cocktail.dir
   POST_BUILD = :

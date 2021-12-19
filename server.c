@@ -1,7 +1,5 @@
 #include "cocktail.h"
 #include "routing.h"
-#include "hashmap.h"
-
 #include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -11,6 +9,7 @@
 #include <malloc.h>
 #include <sys/wait.h>
 #include <stdlib.h>
+#include <search.h>
 
 static volatile int keepRunning = 1;
 unsigned int childProcCount = 0;
@@ -76,10 +75,12 @@ void start_server(int port,ctRoute *ctroutes,int routesize){
     char path[1024];
     unsigned char buf[1024];
     char responseBody[1024];
+    char header[1024];
+    char body[1024];
     struct sockaddr_in client;
     struct sigaction signal_handler;
     int len;
-    hashmap* routes = init_routing(ctroutes,routesize);
+    ENTRY* routes = init_routing(ctroutes,routesize);
 
     pid_t processID;
     /* make socket */
@@ -102,7 +103,7 @@ void start_server(int port,ctRoute *ctroutes,int routesize){
         if ((processID = fork()) < 0){
             DieWithError("create child process failed");
         }else if (processID == 0){
-            handle_request(routes,path,buf,responseBody,readSock,writeSock);
+            handle_request(routes,path,buf,responseBody,header,body,readSock,writeSock);
         }
         //close write socket
         close(writeSock);

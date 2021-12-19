@@ -3,4 +3,4 @@ project(cocktail C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_library(cocktail SHARED server.c routing.c handler.c routing.h hashmap.c hashmap.h)
+add_library(cocktail SHARED server.c routing.c handler.c routing.h)
