@@ -52,9 +52,7 @@ void handle_request(ENTRY* routes,char* path, unsigned char* buf, char* response
     strcpy(header, "");
     strcpy(body, "");
     if(routes!=NULL){
-        ctContext context = {responseBody};
-        //ctroute->ctHandler(context);
-        //ctRoute *ctroute = (ctRoute*)routes;
+        ctContext context = {buf};
         if(strcmp(((ctRoute*)(routes->data))->method,method) == 0){
             ctResponse response = ((ctRoute*)(routes->data))->ctHandler(context);
             strcat(header,response.status);
